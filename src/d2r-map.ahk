@@ -1,27 +1,11 @@
-#SingleInstance, Force
+﻿#SingleInstance, Force
 #Persistent
 #NoEnv
 #MaxHotkeysPerInterval 99000000
 #HotkeyInterval 99000000
 #KeyHistory 0
 ; if not A_IsAdmin
-; 	Run *RunAs "%A_ScriptFullPath%" 
-Gui, Add, Button, x20 y70 w250 gContinue, I acknowledge I'm a cunt and want to get banned
-Gui, Add, Button, x20 y100 w250 gExit, Exit because I'm not a fucking idiot
-Gui, Add, Text, x15 y15, THIS MAP HACK WILL GET YOU BANNED ONLINE`nSERIOUSLY, YOU WILL GET BANNED VERY QUICKLY`nDON'T USE IT YOU CUNTS
-Gui, Show, w300 h140, d2r-mapview 3.0.4
-Return
-
-Exit:
-  ExitApp
-Return
-
-GuiClose:
-  ExitApp
-Return
-
-Continue:
-
+; 	Run *RunAs "%A_ScriptFullPath%"
 ListLines Off
 Process, Priority, , A
 SetBatchLines, -1
@@ -80,12 +64,12 @@ SetTitleMatchMode, 2
 
 ;Add right click menu in tray
 Menu, Tray, NoStandard ; to remove default menu
-Menu, Tray, Tip, d2r-mapview
-Menu, Tray, Add, Settings, ShowSettings
+Menu, Tray, Tip, d2r-mapview汉化版
+Menu, Tray, Add, 设置, ShowSettings
 Menu, Tray, Add
-Menu, Tray, Add, Reload, Reload
+Menu, Tray, Add, 重新加载配置, Reload
 Menu, Tray, Add
-Menu, Tray, Add, Exit, ExitMH
+Menu, Tray, Add, 退出, ExitMH
 
 global version := "3.0.4"
 
@@ -556,7 +540,7 @@ ShowSettings:
         uix := 100
     if (!uiy)
         uiy := 100
-    Gui, Settings: Show, x%uix% y%uiy% h482 w362, d2r-mapview settings
+    Gui, Settings: Show, x%uix% y%uiy% h482 w362, D2R地图插件[汉化者：demo]
     return
 }
 

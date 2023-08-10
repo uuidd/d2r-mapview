@@ -26,7 +26,7 @@ LoadLocalization(ByRef settings) {
     }
     WriteLog("Locale selected is " locale)
 
-    ;have to split these up due to ahk limitations
+    ;由于ahk的限制，不得不将其拆分
     localizedStringsNPCS := ReadSection(locale, "NPCS")
     localizedStringsShrines := ReadSection(locale, "Shrines")
     localizedStringsAreas := ReadSection(locale, "Areas")

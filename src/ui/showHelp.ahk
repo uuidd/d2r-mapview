@@ -1,4 +1,4 @@
-#SingleInstance, Force
+﻿#SingleInstance, Force
 SendMode Input
 SetWorkingDir, %A_ScriptDir%
 #include %A_ScriptDir%\include\OGdip.ahk
@@ -34,52 +34,49 @@ ShowHelpText(settings) {
     YellowBrush:= new OGdip.Brush(0xffFFFF00)
     bmp.G.SetBrush(YellowBrush)
     bmp.G.SetOptions( {textHint:"Antialias"})
-    yellowTextFont := new OGdip.Font("Arial", 38, "Bold")
+    yellowTextFont := new OGdip.Font("SimHei", 38, "Bold")
     textFormat := new OGdip.StringFormat(0)
-    bmp.G.DrawString("D2R-mapview", yellowTextFont, 20, 0, 0, 0, textFormat)
+    bmp.G.DrawString("D2R-mapview 帮助页，按 CTRL+H 隐藏此界面", yellowTextFont, 20, 0, 0, 0, textFormat)
 
 
     ; add the static help text
     WhiteBrush:= new OGdip.Brush(0xFFFFFFFF)
     bmp.G.SetBrush(WhiteBrush)
     bmp.G.SetOptions( {textHint:"Antialias"})
-    whiteTextFont := new OGdip.Font("Arial", 21)
+    whiteTextFont := new OGdip.Font("SimHei", 24)
     textFormat := new OGdip.StringFormat(0)
 
     s .= "`n"
     s .= "`n"
-    s .= "If you paid for this program you have been scammed.`n"
+    s .= "汉化者：demo`n"
     s .= "`n"
-    s .= "- CTRL+H to show/hide this help`n"
-    s .= "- CTRL+O to open settings menu`n"
-    s .= "- CTRL+L to lock/unlock buff bar and item count`n"
-    s .= "- " switchMapMode " to toggle centred map mode`n"
-    s .= "- " alwaysShowKey " key to permanently show map`n"
-    s .= "- " increaseMapSizeKey " key to increase map size`n"
-    s .= "- " decreaseMapSizeKey " key to decrease map size`n"
-    s .= "- " moveMapLeft " key to move map left`n"
-    s .= "- " moveMapRight " key to move map right`n"
-    s .= "- " moveMapUp " key to move map up`n"
-    s .= "- " moveMapDown " key to move map down`n"
-    s .= "- Shift+F9 to toggle debug logging`n"
-    s .= "- Shift+F10 to exit d2r-mapview`n"
-    s .= "- Shift+F11 to reload d2r-mapview`n"
+    s .= "如果你为这个项目付费，你就被骗了。`n"
     s .= "`n"
-    s .= "You can remap keys, and change colours in settings by pressing Ctrl+O`n"
+    s .= "- CTRL+H 显示/隐藏此帮助`n"
+    s .= "- CTRL+O 打开设置菜单`n"
+    s .= "- CTRL+L 锁定/解锁buff栏和物品计数`n"
+    s .= "- 按 " switchMapMode " 键切换小地图位置`n"
+    s .= "- 按 " alwaysShowKey " 键一直显示小地图`n"
+    s .= "- 按 " increaseMapSizeKey " 键增加地图大小`n"
+    s .= "- 按 " decreaseMapSizeKey " 键减小地图大小`n"
+    s .= "- " moveMapLeft " 向左移动地图`n"
+    s .= "- " moveMapRight " 向右移动地图`n"
+    s .= "- " moveMapUp " 向上移动地图`n"
+    s .= "- " moveMapDown " 向下移动地图`n"
+    s .= "- Shift+F9 切换调试日志记录`n"
+    s .= "- Shift+F10 退出D2R地图插件`n"
+    s .= "- Shift+F11 重新加载D2R地图插件`n"
     s .= "`n"
-    s .= "See log.txt for troubleshooting.`n"
+    s .= "按 Ctrl+O 可以重新设置快捷键，并能自定义颜色`n"
     s .= "`n"
-    s .= "Please report scams on the discord, link found on Github.`n"
+    s .= "有关疑难解答，请参阅 log.txt。`n"
     bmp.G.DrawString(s, whiteTextFont, 20, 20, 0, 0, textFormat)
-
-    whiteTextFont := new OGdip.Font("Arial", 36)
-    bmp.G.DrawString("Press CTRL+H to hide", whiteTextFont, 15, 680, 0, 0, textFormat)
 
     ; add map legend        
     WhiteBrush:= new OGdip.Brush(0xFFFFFFFF)
     bmp.G.SetBrush(WhiteBrush)
     bmp.G.SetOptions( {textHint:"Antialias"})
-    whiteTextFont := new OGdip.Font("Arial", 21)
+    whiteTextFont := new OGdip.Font("SimHei", 21)
     textFormat := new OGdip.StringFormat(0)
 
     alwaysShowKey:= "NumpadMult"
@@ -87,17 +84,17 @@ ShowHelpText(settings) {
     decreaseMapSizeKey:= "NumpadSub"
     m .= "`n"
     m .= "`n"
-    m .= " = Player`n"
-    m .= " = Normal monster (or NPC)`n"
-    m .= " = Unique/Champion/Superunique monster`n"
-    m .= " = Boss (Diablo, Nihlithak, Summoner, etc)`n"
+    m .= " = 玩家`n"
+    m .= " = 普通怪物（或NPC）`n"
+    m .= " = 暗金怪/蓝怪`n"
+    m .= " = Boss (迪亚波罗, 尼拉塞克, 召唤师, 等)`n"
     m .= "`n"
-    m .= " = Cold immune normal monster`n"
-    m .= " = Fire immune normal monster`n"
-    m .= " = Poison immune normal monster`n"
-    m .= " = Lightning immune normal monster`n"
-    m .= " = Magic immune normal monster`n"
-    m .= " = Physical immune normal monster`n"
+    m .= " = 怪物冰霜免疫`n"
+    m .= " = 怪物火焰免疫`n"
+    m .= " = 怪物毒素免疫`n"
+    m .= " = 怪物闪电免疫`n"
+    m .= " = 怪物魔法免疫`n"
+    m .= " = 怪物物理免疫`n"
     bmp.G.DrawString(m, whiteTextFont, 700, 20, 0, 0, textFormat)
 
 
