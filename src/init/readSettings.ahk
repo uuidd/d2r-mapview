@@ -20,8 +20,8 @@ readSettings(settingsFile, ByRef settings) {
     settings["alertedMapServerVersion"] := false
 
     settings["mapPosition"] := "CENTER"   ; can be "TOP_LEFT" or "TOP_RIGHT"
-    settings["centerModeScale"] := 2.262
-    settings["centerModeOpacity"] := 0.6
+    settings["centerModeScale"] := 1.5
+    settings["centerModeOpacity"] := 0.45
     settings["centerModeOffsetX"] := 0
     settings["centerModeOffsetY"] := 0
     settings["cornerModeScale"] := 1.130
@@ -83,7 +83,7 @@ readSettings(settingsFile, ByRef settings) {
     settings["showItemStats"] := 0
     settings["includeVendorItems"] := 1
     settings["buffBarEnabled"] := 1
-    settings["buffBarIconSize"] := 75
+    settings["buffBarIconSize"] := 50
     settings["buffBarVerticalOffset"] := 0
 
     settings["allowTextToSpeech"] := 1
