@@ -272,7 +272,7 @@ While 1 {
                 mapGuis.hide()
                 unitsGui.hide()
                 
-                ShowText(settings, "Loading map data...`nPlease wait`nPress Ctrl+H for help`nPress Ctrl+O for settings", "44") ; 44 is opacity
+                ShowText(settings, "正在加载地图数据。。。`n请稍候`n按 Ctrl+H 可获得帮助`n按 Ctrl+O 可进行设置", "44") ; 44 is opacity
                 ; Show Map
                 mapGuis.downloadMapImages(mapList, gameMemoryData)
                 
