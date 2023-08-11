@@ -35,15 +35,15 @@ readSettings(settingsFile, ByRef settings) {
     settings["historyTextSize"] := "18"
     settings["showAllHistory"] := 0
     settings["showFPS"] := 0
-    settings["showGameInfo"] := 1
+    settings["showGameInfo"] := 0
     settings["gameInfoFontSize"] := "18"
     settings["gameInfoAlignment"] := "LEFT"
     settings["exitTextSize"] := "12"
-    settings["showNumPlayers"] := 1
+    settings["showNumPlayers"] := 0
 
     settings["showPartyLocations"] := 1
     settings["showResists"] := 1
-    settings["showHealthPc"] := 1
+    settings["showHealthPc"] := 0
     settings["partyInfoFontSize"] := 0
     settings["resistFontSize"] := 0
     settings["healthFontSize"] := 0
@@ -63,7 +63,7 @@ readSettings(settingsFile, ByRef settings) {
     settings["showShrines"] := 1
     settings["showPortals"] := 1
     settings["showChests"] := 1
-    settings["showPathFinding"] := 0
+    settings["showPathFinding"] := 1
     settings["pathFindingColour"] := "FF0000"
     settings["lastActiveGUITab"] := "Info"
     settings["settingsUIX"] := 100
@@ -119,7 +119,7 @@ readSettings(settingsFile, ByRef settings) {
     settings["shrineTextSize"] := "20"
     
 
-    settings["showWaypointLine"] := 0
+    settings["showWaypointLine"] := 1
     settings["showNextExitLine"] := 1
     settings["showBossLine"] := 1
     settings["showQuestLine"] := 1
