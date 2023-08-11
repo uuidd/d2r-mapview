@@ -64,7 +64,7 @@ SetTitleMatchMode, 2
 
 ;Add right click menu in tray
 Menu, Tray, NoStandard ; to remove default menu
-Menu, Tray, Tip, d2r-mapview汉化版
+Menu, Tray, Tip, MapView工具箱
 Menu, Tray, Add, 设置, ShowSettings
 Menu, Tray, Add
 Menu, Tray, Add, 重新加载配置, Reload

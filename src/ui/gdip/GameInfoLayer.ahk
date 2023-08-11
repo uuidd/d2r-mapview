@@ -1,4 +1,4 @@
-#NoEnv
+﻿#NoEnv
 
 class GameInfoLayer {
     hbm :=
@@ -130,22 +130,22 @@ class GameInfoLayer {
         fontSize := this.gameInfoSize
         textList := ""
         if (settings["showGameInfo"]) {
-            textList := "D2R-Mapview " version "`n"
             ; only show this text for the first 10 seconds from startup
             if (!this.hideStartupText) {
                 if (A_TickCount - this.startTime < 10000) {
-                    textList := textList "Ctrl+O for options`n"
-                    textList := textList "Ctrl+H for help`n"
-                    textList := textList "Ctrl+L for lock/unlock bars`n"
+                    textList := "D2R-Mapview " version "`n"
+                    textList := textList "Ctrl+O 打开设置`n"
+                    textList := textList "Ctrl+H 打开帮助`n"
+                    textList := textList "Ctrl+L 锁定/解锁UI布局`n"
                 } else {
                     this.hideStartupText := true
                 }
             }
             if (this.areaLevel) {
-                textList := textList "Area Level: " this.areaLevel "`n"
+                textList := textList "场景等级(非邪恶区域时): " this.areaLevel "`n"
             }
             if (this.experiencePenalty > 0) {
-                textList := textList "XP penalty: " this.experiencePenalty "% `n"
+                textList := textList "XP 惩罚: " this.experiencePenalty "% `n"
             }
         }
         

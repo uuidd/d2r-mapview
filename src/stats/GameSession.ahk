@@ -1,4 +1,4 @@
-SetWorkingDir, %A_ScriptDir%
+﻿SetWorkingDir, %A_ScriptDir%
 
 class GameSession {
     gameName := ""
@@ -45,11 +45,11 @@ class GameSession {
     saveEntryToFile() {
         if (!this.isLogged) { ; only log it once
             entry := this.getEntry()
-            if (!FileExist("GameSessionLog.csv")) {
-                headerRow := "Timestamp,PlayerName,GameName,Duration,PlayerLevelStart,PlayerLevelEnd,StartingExperience,EndingExperience,ExperienceGained"
-                FileAppend, %headerRow%`n, GameSessionLog.csv
+            if (!FileExist("玩家经验统计表.csv")) {
+                headerRow := "开始时间,玩家名称,游戏名称,本局游戏时间,开始等级,结束等级,开始经验值,结束经验值,本局游戏获得的经验"
+                FileAppend, %headerRow%`n, 玩家经验统计表.csv
             }
-            FileAppend, %entry%`n, GameSessionLog.csv
+            FileAppend, %entry%`n, 玩家经验统计表.csv
             this.isLogged := true
         }
     }
