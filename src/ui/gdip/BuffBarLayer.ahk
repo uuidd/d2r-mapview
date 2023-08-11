@@ -113,7 +113,7 @@ class BuffBarLayer {
 
     drawFloatingText(textx, texty, text) {
         fontSize := this.buffBarFontSize
-        textSpaceWidth := StrLen(text) * this.buffBarFontSize
+        textSpaceWidth := (StrLen(text)+1) * this.buffBarFontSize
         , textSpaceHeight := 100
         textx := textx - textSpaceWidth / 2
         , texty := texty
