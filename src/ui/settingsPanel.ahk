@@ -348,7 +348,7 @@ CreateSettingsGUI(ByRef settings, ByRef localizedStrings) {
     Gui, Settings:Font, S16 CDefault
 
     Gui, Settings:Add, Link, x70 y380 w120 h30 +Center, <a href="https://github.com/joffreybesos/d2r-mapview#readme">原版地址</a>
-    Gui, Settings:Add, Link, x220 y380 w140 h30 +Center, <a href="https://discord.com/invite/qEgqyVW3uj">汉化地址</a>
+    Gui, Settings:Add, Link, x220 y380 w140 h30 +Center, <a href="https://mod.3dmgame.com/mod/200910">汉化地址</a>
 
     settingupGUI := true
     ;Gui, Settings: Show, h482 w362, d2r-mapview settings
