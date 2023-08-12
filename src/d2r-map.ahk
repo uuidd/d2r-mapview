@@ -127,12 +127,36 @@ settingupGUI := false
 
 SetupHotKeys(gameWindowId, settings)
 
+; 自动获取管理员权限
+full_command_line := DllCall("GetCommandLine", "str")
+if not (A_IsAdmin or RegExMatch(full_command_line, " /restart(?!\S)")){
+    try
+    {
+        if A_IsCompiled
+            Run *RunAs "%A_ScriptFullPath%" /restart
+        else
+            Run *RunAs "%A_AhkPath%" /restart "%A_ScriptFullPath%"
+    }
+    ExitApp
+}
+
 ; check that game is running
 if (not WinExist(gameWindowId)) {
     errornogame := localizedStrings["errormsg10"]
     WriteLog(gameWindowId " not found, please make sure game is running, try running MH as admin if still having issues")
-    Msgbox, 48, d2r-mapview %version%, %errormsg10%`n`n%errormsg11%`n%errormsg12%`n`n%errormsg3%
+    Msgbox, 48, d2r-mapview %version%, 1. 请确保【暗黑破坏神Ⅱ重制版】正在运行`n2. 尝试右键【管理员权限】启动本程序`n3. 用【疯兔工具箱】和【D2ROffLine.exe】启动游戏可能会意外报错`n4. 请用【D2R.exe】启动游戏
     ExitApp
+}
+
+; 检测服务器注册表
+RegRead, installPath, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, InstallPath
+if((installPath != 0) && (installPath != A_ScriptDir . "\game")){
+    RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, InstallPath, %A_ScriptDir%\game
+}
+
+RegRead, savePath, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, Save Path
+if((savePath != 0) && (savePath != A_ScriptDir . "\game\save")){
+    RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, Save Path, %A_ScriptDir%\game\save
 }
 
 ; initialise memory reading

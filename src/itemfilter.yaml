@@ -1,6 +1,6 @@
-# Alerts will be applied in the order listed here
-# To disable an alert, remove it from this list
-# As soon as an item matches an alert, any alerts ranked underneath won't be checked
+# 警报将按此处列出的顺序应用
+# 要禁用警报，请将其从此列表中删除
+# 一旦项目与警报匹配，则不会检查排名在下面的任何警报
 enabledAlerts:
   - UniqueRingsAndAmmys
   - SpecificSetItems
@@ -23,36 +23,36 @@ enabledAlerts:
   - Skulls
 
 ##############################################
-#### Define all alerts below this section ####
+#### 定义此部分下方的所有警报 ####
 ##############################################
 
-# You can define your own alerts, so long as it's a child of 'Alerts'
-# If you create a new alert, remember to add it to the 'enabledAlerts' list above
+# 您可以定义自己的警报，只要它是“警报”的子级
+# 如果您创建了新警报，请记住将其添加到上面的“enabledAlerts”列表中
 
-# This is the format:
-#<AlertName>:     # The alertname can be whatever you like
+# 这是格式:
+#<AlertName>:     # 警觉性名称可以是你喜欢的任何名称
 #  quality:
-#   - <quality> List all qualities that you want to include, Inferior, Normal, Magic, Rare, Unique, Set
-#               If you don't specify any qualities, then ALL qualities will be accepted
+#   - <quality> 列出你想要包含的所有品质, Inferior, Normal, Magic, Rare, Unique, Set
+#               如果你没有指定任何品质，那么所有品质都会被接受
 #  item:
-#   - <item name> List only the item name, you CANNOT list the name of the actual Unique e.g. 'String of Ears'
-#                 You can add number of sockets such as "Death Mask, 2" for 2 sockets. If you don't specify
-#                 number of sockets then any amount of sockets will be accepted.
-#  soundeffect: <filename.wav>           # soundeffect that plays when item is seen on ground
-#  color: <hex value>                    # color of alert on the screen
-#  speak: true/false                     # set to false to suppress text to speech, defaults to true
-#  ignoreethereal : true/false           # exclude etheral from the alert
-#  ignoreidentified : true/false         # exclude identified items from the alert
-#  onlyethereal : true/false             # only inclue etheral items from the alert
-#  ignoreunidentified : true/false       # exclude identified items from the alert
+#   - <item name> 只列出项目名称，不能列出实际Unique的名称，例如。 'String of Ears'
+#                 您可以添加一些套接字，例如 "Death Mask, 2"用于2个插座。如果您没有指定
+#                 插座的数量，那么任何数量的插座都将被接受。
+#  soundeffect: <filename.wav>           # 在地面上看到物品时播放的音效
+#  color: <hex value>                    # 屏幕上警报的颜色
+#  speak: true/false                     # 设置为false可抑制文本转换语音，默认为true
+#  ignoreethereal : true/false           # 从警报中排除无形物品
+#  ignoreidentified : true/false         # 从警报中排除已识别的项目
+#  onlyethereal : true/false             # 仅包含警报中的无形物品
+#  ignoreunidentified : true/false       # 从警报中排除已识别的项目
 
 # Full list of matching items:
 # https://github.com/joffreybesos/d2r-mapview/wiki/Item-filter-configuration#full-list-of-items
 
-# Only the first matching alert will be applied
+# 将仅应用第一个匹配的警报
 
 Alerts:
-  # just unique rings and ammys
+  # 只有暗金戒指和项链
   UniqueRingsAndAmmys:
     quality:
       - Unique
@@ -62,15 +62,15 @@ Alerts:
     soundeffect: ching.wav
     color: BBA45B
 
-  # specific set items give a different alert
+  # 特定的绿装会发出不同的警报
   SpecificSetItems:
     quality:
       - Set
     items:
-      - Lacquered Plate   # Tal Rasha's Guardianship
+      - Lacquered Plate   #
       - Death Mask        # Tal Rasha's Horadric Crest
       - Mesh Belt         # Tal Rasha's Fine Spun Cloth
-      - Sacred Armor      # Immortal King
+      - Sacred Armor      # 不朽之王武器
       - Heavy Bracers     # Trang-Oul's Claws
       - Winged Helm       # Guillaume's Face
       - Russet Armor      # Aldur's Advance
@@ -78,13 +78,13 @@ Alerts:
     soundeffect: goodsetitem.wav
     color: 00FC00
 
-  # base items with sockets
+  # 带插座的基本物品
   BaseItems:
     quality:
       - Normal
       - Superior
     items:
-      # shields
+      # 盾牌
       - Aerin Shield, 3
       - Akaran Rondache, 3
       - Akaran Targe, 3
@@ -99,7 +99,7 @@ Alerts:
       - Zakarum Shield, 3
       - Zakarum Shield, 4
 
-      # Armor
+      # 武器
       - Archon Plate, 4
       - Balrog Skin, 3
       - Balrog Skin, 4
@@ -129,7 +129,7 @@ Alerts:
       - Wyrmhide, 3
       - Wyrmhide, 4
 
-      # Helms
+      # 腰带
       - Bone Visage, 3
       - Boneweave, 3
       - Boneweave, 4
@@ -138,13 +138,13 @@ Alerts:
       - Demonhead, 3
       - Diadem, 3
 
-      # Polearms
+      # 长柄武器
       - Colossus Voulge, 4
       - Giant Thresher, 4
       - Cryptic Axe, 4
       - Thresher, 4
 
-      # Swords
+      # 剑
       - Crystal Sword, 3
       - Crystal Sword, 4
       - Crystal Sword, 5
@@ -157,7 +157,7 @@ Alerts:
       - Flail, 4
       - Flail, 5
 
-      # claws
+      # 爪
       - Greater Talons, 2
       - Runic Talons, 2
       - Feral Claws, 2
@@ -181,13 +181,13 @@ Alerts:
       - Amulet
     color: FFFF00
 
-  # all uniques
+  # 所有暗金
   AllUniqueItems:
     quality:
       - Unique
     color: BBA45B
 
-  # all set items
+  # 所有绿装
   AllSetItems:
     quality:
       - Set
@@ -199,7 +199,7 @@ Alerts:
     items:
       - Jewel
     soundeffect: jewel.wav
-    #ignoreidentified: true     # only alert if the jewel is not identified
+    #ignoreidentified: true     # 仅在未识别珠宝时发出警报
     color: 6D6DFF
   
   RareJewels:
@@ -208,7 +208,7 @@ Alerts:
     items:
       - Jewel
     soundeffect: jewel.wav
-    #ignoreidentified: true     # only alert if the jewel is not identified
+    #ignoreidentified: true     # 仅在未识别珠宝时发出警报
     color: FFFF00
     
     
@@ -225,10 +225,10 @@ Alerts:
       - Large Charm
       - Grand Charm
     soundeffect: charm.wav
-    # ignoreidentified: true     # only alert if the charm is not identified
+    # ignoreidentified: true     # 只有在未识别咒符时才发出警报
     color: 6D6DFF
   
-  # note: anything with a # in front of it is ignored
+  # 注意：前面有#的任何内容都将被忽略
   Runes:
     items:
       # - El Rune 
@@ -266,7 +266,7 @@ Alerts:
       - Zod Rune 
     color: FFA700
 
-  # note: anything with a # in front of it is ignored
+  # 注意：前面有#的任何内容都会被忽略
   GemsAmethyst:
     items:
       # - Chipped Amethyst
@@ -275,7 +275,7 @@ Alerts:
       # - Flawless Amethyst
       - Perfect Amethyst
     color: c200bc
-    speak: false     # speech turned off for this alert
+    speak: false     # 此警报的语音已关闭
 
   GemsDiamond:
     items:
@@ -285,7 +285,7 @@ Alerts:
       # - Flawless Diamond
       - Perfect Diamond
     color: eeeeee
-    speak: false     # speech turned off for this alert
+    speak: false     # 此警报的语音已关闭
 
   GemsEmerald:
     items:
@@ -295,7 +295,7 @@ Alerts:
       # - Flawless Emerald
       - Perfect Emerald
     color: 00D612
-    speak: false     # speech turned off for this alert
+    speak: false     # 此警报的语音已关闭
 
   GemsRuby:
     items:
@@ -305,7 +305,7 @@ Alerts:
       # - Flawless Ruby
       - Perfect Ruby
     color: F7002D
-    speak: false     # speech turned off for this alert
+    speak: false     # 此警报的语音已关闭
 
   GemsSapphire:
     items:
@@ -315,7 +315,7 @@ Alerts:
       # - Flawless Sapphire
       - Perfect Sapphire
     color: 0031F7
-    speak: false     # speech turned off for this alert
+    speak: false     # 此警报的语音已关闭
 
   GemsTopaz:
     items:
@@ -325,7 +325,7 @@ Alerts:
       # - Flawless Topaz
       - Perfect Topaz
     color: F7B100
-    speak: false     # speech turned off for this alert
+    speak: false     # 此警报的语音已关闭
 
   Skulls:
     items:
@@ -335,4 +335,4 @@ Alerts:
       # - Flawless Skull
       - Perfect Skull
     color: FFFFFF
-    speak: false     # speech turned off for this alert
+    speak: false     # 此警报的语音已关闭
