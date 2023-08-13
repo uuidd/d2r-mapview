@@ -149,14 +149,15 @@ if (not WinExist(gameWindowId)) {
 }
 
 ; 检测服务器注册表
-RegRead, installPath, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, InstallPath
-if((installPath != 0) && (installPath != A_ScriptDir . "\game")){
-    RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, InstallPath, %A_ScriptDir%\game
+d2GamePath := A_ScriptDir . "\game"
+d2SavePath := A_ScriptDir . "\game\save"
+RegRead, installPath, HKEY_CURRENT_USER, SOFTWARE\Blizzard Entertainment\Diablo II, InstallPath
+RegRead, savePath, HKEY_CURRENT_USER, SOFTWARE\Blizzard Entertainment\Diablo II, Save Path
+if(installPath != d2GamePath){
+    RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, InstallPath, %d2GamePath%
 }
-
-RegRead, savePath, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, Save Path
-if((savePath != 0) && (savePath != A_ScriptDir . "\game\save")){
-    RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, Save Path, %A_ScriptDir%\game\save
+if(savePath != d2SavePath){
+    RegWrite, REG_SZ, HKEY_CURRENT_USER\SOFTWARE\Blizzard Entertainment\Diablo II, Save Path, %d2SavePath%
 }
 
 ; initialise memory reading
@@ -223,7 +224,7 @@ While 1 {
                 SetFormat Integer, D
                 if (settings["showAllHistory"]) {
                     if (!sessionList.MaxIndex()) {
-                        sessionList := readSessionFile("GameSessionLog.csv")
+                        sessionList := readSessionFile("玩家经验统计表.csv")
                     }
                 }
                 historyText.drawTable(sessionList, historyToggle)
@@ -343,6 +344,7 @@ While 1 {
     if (not WinExist(gameWindowId)) {
         WriteLog(gameWindowId " not found, please make sure game is running, try running in admin if still having issues")
         session.saveEntry()
+        Process, Close, d2-mapserver.exe
         ExitApp
     }
 
@@ -551,6 +553,7 @@ ExitMH:
             alreadyseenperf.Push(thisName)
         }
     }
+    Process, Close, d2-mapserver.exe
     ExitApp
     return
 }
